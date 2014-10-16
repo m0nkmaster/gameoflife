@@ -18,13 +18,13 @@ class GameOfLifeTest extends PHPUnit_Framework_TestCase
     public function testAGridOfOneLiveCellDies()
     {
         $grid = "*";
-        $this->assertEquals('-', $this->gol->nextGeneration($grid));
+        $this->assertEquals('-', $this->gol->evolve($grid));
     }
 
     public function testGOLTrimsExtraNewLines()
     {
         $grid = "\n*\n";
-        $this->assertEquals('-', $this->gol->nextGeneration($grid));
+        $this->assertEquals('-', $this->gol->evolve($grid));
     }
 
     /**
@@ -34,7 +34,7 @@ class GameOfLifeTest extends PHPUnit_Framework_TestCase
     {
         $grid = "---\n-*-\n---";
         $expected = "---\n---\n---";
-        $this->assertEquals($expected, $this->gol->nextGeneration($grid));
+        $this->assertEquals($expected, $this->gol->evolve($grid));
     }
 
     /**
@@ -44,7 +44,7 @@ class GameOfLifeTest extends PHPUnit_Framework_TestCase
     {
         $grid = "---\n**-\n---";
         $expected = "---\n---\n---";
-        $this->assertEquals($expected, $this->gol->nextGeneration($grid));
+        $this->assertEquals($expected, $this->gol->evolve($grid));
     }
 
     /**
@@ -54,7 +54,7 @@ class GameOfLifeTest extends PHPUnit_Framework_TestCase
     {
         $grid = "---\n***\n---";
         $expected = "-*-\n-*-\n-*-";
-        $this->assertEquals($expected, $this->gol->nextGeneration($grid));
+        $this->assertEquals($expected, $this->gol->evolve($grid));
     }
 
     /**
@@ -64,7 +64,7 @@ class GameOfLifeTest extends PHPUnit_Framework_TestCase
     {
         $grid = "-*-\n-*-\n-*-";
         $expected = "---\n***\n---";
-        $this->assertEquals($expected, $this->gol->nextGeneration($grid));
+        $this->assertEquals($expected, $this->gol->evolve($grid));
     }
 
     /**
@@ -74,7 +74,7 @@ class GameOfLifeTest extends PHPUnit_Framework_TestCase
     {
         $grid = "*-*\n-*-\n*-*";
         $expected = "-*-\n*-*\n-*-";
-        $this->assertEquals($expected, $this->gol->nextGeneration($grid));
+        $this->assertEquals($expected, $this->gol->evolve($grid));
     }
 
     /**
@@ -84,6 +84,6 @@ class GameOfLifeTest extends PHPUnit_Framework_TestCase
     {
         $grid = "*---\n-*--\n---*";
         $expected = "----\n----\n----";
-        $this->assertEquals($expected, $this->gol->nextGeneration($grid));
+        $this->assertEquals($expected, $this->gol->evolve($grid));
     }
 }
