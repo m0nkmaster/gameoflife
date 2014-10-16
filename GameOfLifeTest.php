@@ -15,6 +15,12 @@ class GameOfLifeTest extends PHPUnit_Framework_TestCase
         $this->gol = new GameOfLife;
     }
 
+    public function testAGridOfOneDeadCellDoesNothing()
+    {
+        $grid = "-";
+        $this->assertEquals('-', $this->gol->evolve($grid));
+    }
+
     public function testAGridOfOneLiveCellDies()
     {
         $grid = "*";
