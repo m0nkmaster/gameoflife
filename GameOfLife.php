@@ -1,4 +1,4 @@
-<?
+<?php
 class GameOfLife
 {
     public function evolve($grid)
@@ -96,3 +96,4 @@ class GameOfLife
 
     }
 }
+?>

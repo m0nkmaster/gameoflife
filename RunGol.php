@@ -1,8 +1,8 @@
 <?php
-include('GameOfLife.php');
+require_once('GameOfLife.php');
 
 $gol = new GameOfLife;
-$grid = 
+$grid =
 "
 ---------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------
@@ -49,7 +49,7 @@ $grid =
 
 echo $grid;
 for($i=0;$i<500;$i++) {
-     usleep(200000);
+     usleep(80000);
      if (ob_get_length()) {
          ob_clean();
      }
@@ -57,3 +57,4 @@ for($i=0;$i<500;$i++) {
      $grid = $gol->evolve($grid);
      echo "\n" . $grid;
 }
+?>
